@@ -64,3 +64,16 @@ int Stack::peak(){
 int Stack::min(){
 	return min_stack[top_index];
 }
+
+
+bool Stack::isOverFlow(){
+	if (top_index == size -1 )
+		return true;
+	else return false;
+}
+
+bool Stack::isUnderFlow(){
+	if (top_index == -1)
+		return true;
+	else return false;
+}

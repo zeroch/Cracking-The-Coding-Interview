@@ -13,7 +13,8 @@ public:
 	int		findMin();
 	int		min();
 	int 	peak();
-
+	bool 	isOverFlow();
+	bool	isUnderFlow();
 private:
 	int size;
 	int * stack;

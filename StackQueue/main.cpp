@@ -1,7 +1,7 @@
 // Test file for the Stack and Queue part
 #include <iostream>
 #include "Stack.h"
-
+#include "SetOfStack.h"
 int main(int argc, char const *argv[])
 {
 	// Problem 3.2
@@ -17,6 +17,20 @@ int main(int argc, char const *argv[])
 	// std::cout	<<	m_stack.peak()	<<	std::endl;
 	// std::cout	<<	m_stack			<< std::endl;
 	// std::cout	<<	m_stack.min()	<< std::endl;
+
+
+	// Problem 3.3
+	// Set of Stack 
+
+	SetOfStack m_stack;
+
+	for (int i = 0; i < 90; ++i)
+	{
+		m_stack.push(i);
+	}
+
+	std::cout << m_stack <<	std::endl;
+
 
 
 	return 0;

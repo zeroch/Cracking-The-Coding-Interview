@@ -10,6 +10,7 @@ link_directories( "../Common/library/" )
 
 set(SOURCE_FILE_LIST 
 	Stack
+	SetOfStack
 	main
 	)
 
