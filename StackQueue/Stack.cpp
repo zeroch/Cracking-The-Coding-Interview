@@ -24,6 +24,28 @@ Stack::~Stack(){
 
 }
 
+int Stack::getSize(){
+	return size;
+}
+
+void Stack::operator=(const Stack& s){
+	if (size == s.size )
+	{	
+		top_index = s.top_index;
+		min_index = s.min_index;
+		size = s.size;
+		for (int i = 0; i < size; ++i)
+		{
+			this->stack[i] = s.stack[i];
+			this->min_stack[i] = s.min_stack[i];
+		}
+	}else
+	{
+		std::cout << "Stack size is not match, can't do a = operation"	<<	std::endl;
+	}
+}
+
+
 void Stack::push(int m_data){
 	if ( top_index > size )
 	{

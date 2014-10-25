@@ -15,6 +15,8 @@ public:
 	int 	peak();
 	bool 	isOverFlow();
 	bool	isUnderFlow();
+	int 	getSize();
+	void operator=(const Stack&);
 private:
 	int size;
 	int * stack;
