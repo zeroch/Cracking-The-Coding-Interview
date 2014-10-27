@@ -18,7 +18,7 @@ Stack::~Stack(){
  	out	<<	"Size is "		<<	s.size 	<< '\n';
 	for (int i = s.top_index; i >= 0; --i)
 	{
-		out << s.stack[i]	<<	" Min" 	<< 	s.min_stack[i]	<<	'\n';
+		out << s.stack[i]	<<	'\n';
 	}
 	return out;
 
@@ -98,4 +98,24 @@ bool Stack::isUnderFlow(){
 	if (top_index == -1)
 		return true;
 	else return false;
+}
+
+
+void Stack::sort(){
+	Stack tmp_stack(size);
+	int tmp;
+
+	while( !this->isUnderFlow() ){
+		tmp = this->peak();
+		this->pop();
+
+		while( !tmp_stack.isUnderFlow() && 
+				(tmp_stack.peak() > tmp) ){
+			
+			this->push(tmp_stack.peak());
+			tmp_stack.pop();
+		}
+		tmp_stack.push(tmp);
+	}
+	*this = tmp_stack;
 }

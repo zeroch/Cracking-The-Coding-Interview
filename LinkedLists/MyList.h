@@ -45,7 +45,7 @@ public:
     void isPalidrome();
     bool isPalidromeHelper(Node<T> * next, int deep, Node<T> * middle, int length);
 
-private:
+protected:
 	Node<T> * head;
 	Node<T> * tail;
 };

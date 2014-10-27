@@ -16,6 +16,7 @@ public:
 	bool 	isOverFlow();
 	bool	isUnderFlow();
 	int 	getSize();
+	void 	sort();
 	void operator=(const Stack&);
 private:
 	int size;
