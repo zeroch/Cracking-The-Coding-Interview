@@ -108,7 +108,7 @@ int main(int argc, char const *argv[])
 
 	Node< std::pair<int, int> > * cat = m_list->pop_back();
 
-	// std::cout << cat->getData().first	<< '\t'	<<	cat->getData().second	<<	std::endl;
+	std::cout << cat->getData().first	<< '\t'	<<	cat->getData().second	<<	std::endl;
 
 	// MyList< <std::pair<int,int> >  * m_catlist = new MyList< std::pair<int,int>>(m_node);
 

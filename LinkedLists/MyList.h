@@ -201,7 +201,7 @@ Node<T> * MyList<T>::pop_back(){
 	{
 
 		Node<T> * slow = head;
-		Node<T> * fast = slow->getNext();
+		Node<T> * fast = slow;
 
 		while(fast != tail){
 			fast = fast->getNext();
