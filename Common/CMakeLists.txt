@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g3 ")
 
 set(SOURCE_FILE_LIST 
 	Node
+	Bnode
 	)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILE_LIST})

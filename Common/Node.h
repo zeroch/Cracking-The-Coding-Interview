@@ -15,6 +15,7 @@ public:
 	void setData(T);
 	Node<T> * getNext();
 	void setNext(Node<T> *);
+	void operator=(const Node<T>& n); 
 
 
 private:
@@ -33,17 +34,19 @@ Node<T>::Node(T m_node){
 
 		data = m_node;
 		next = 0;
-		// std::cout << "hello " 	<< std::endl;
-		// std::cout << "a node is created " 
-		// 		  << data 		<<   std::endl;
-
-
 } 
 
 template <class T> 
 Node<T>::~Node(){
 
 }
+
+template <class T>
+void Node<T>::operator=(const Node& n){
+	data = n.data;
+	next = n.next;
+}
+
 
 template <class T> 
 T Node<T>::getData(){

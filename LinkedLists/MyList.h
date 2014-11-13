@@ -26,10 +26,12 @@ public:
 
 	Node<T> * pop_back();
 	Node<T> * pop_front();
+	Node<T> * peak_front();
 
 	void removeNode(Node<T> * m_node);
 	Node<T> * unlinkNode(Node<T> * m_node);
 
+	bool isEmpty();
 	void printList();
 
 //	use set to write the record. time O(n), space O(n);
@@ -133,6 +135,8 @@ template <class T>
 void MyList<T>::push_back(T m_data){
 
     Node<T> * m_node = new Node<T>(m_data);
+    std::cout <<	"DEBUG: a node is create: " <<	m_node	<<	std::endl;
+    
 	if (head == 0 && tail == 0)
 	{
 		head = m_node;
@@ -229,6 +233,21 @@ Node<T> * MyList<T>::pop_front(){
 	}
 }
 
+template <class T>
+Node<T> * MyList<T>::peak_front(){
+	if ( head == 0 && tail == 0)
+	{
+		std::cout << "Empty List" << std::endl;
+		return 0;
+	}else
+	{
+		Node<T> * result = head;
+		return result;
+	}
+}
+
+
+
 
 // Node is already found from the list. 
 // need a trivial to make sure the linking in the list
@@ -296,7 +315,12 @@ Node<T> * MyList<T>::unlinkNode(Node<T> * m_node){
 
 }
 
+template <class T>
+bool MyList<T>::isEmpty(){
 
+	return ( head == 0 && tail == 0) ? true : false ;
+
+}
 
 template <class T>
 void MyList<T>::printList(){

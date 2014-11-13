@@ -7,6 +7,8 @@
 #include "MyQueue.h"
 #include "ListQueue.h"
 #include "Node.h"
+#include "AnimalShelter.h"
+
 
 int main(int argc, char const *argv[])
 {
@@ -96,21 +98,20 @@ int main(int argc, char const *argv[])
 
 	// Problem 3.6
 
+	AnimalShelter m_shelter;
+	
+	m_shelter.enqueue(AnimalShelter::CAT, 1205);
+	m_shelter.enqueue(AnimalShelter::CAT, 32);
+	m_shelter.enqueue(AnimalShelter::DOG, 1232);
+	m_shelter.enqueue(AnimalShelter::CAT, 87);
+	m_shelter.enqueue(AnimalShelter::DOG, 534);
+	m_shelter.enqueue(AnimalShelter::CAT, 29);
 
-	std::pair<int,int> m_cat(1, 5);
-	std::cout << m_cat.first	<< '\t'	<<	m_cat.second	<<	std::endl;
+	m_shelter.printShelter();
 
-	Node<std::pair<int,int> > * m_node = new Node< std::pair<int,int>  >(m_cat);
+	m_shelter.dequeueDog();
 
-	Node<std::pair<int,int>> * x = new Node<std::pair<int,int>>(m_cat);
-
-	ListQueue< std::pair<int,int> > * m_list = new ListQueue<std::pair<int,int> >(x);
-
-	Node< std::pair<int, int> > * cat = m_list->pop_back();
-
-	std::cout << cat->getData().first	<< '\t'	<<	cat->getData().second	<<	std::endl;
-
-	// MyList< <std::pair<int,int> >  * m_catlist = new MyList< std::pair<int,int>>(m_node);
+	m_shelter.printShelter();
 
 
 	return 0;
