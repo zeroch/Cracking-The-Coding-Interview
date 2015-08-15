@@ -53,6 +53,7 @@ public:
 	BTree::Result ancestorHelper(Bnode * t_node, Bnode * p, Bnode * q);
 	void findSum();
 	void findSumHelper(Bnode * t_node, int * path, int n, int sum);
+	bool visitData(Bnode * left, Bnode * current);
 
 
 private:

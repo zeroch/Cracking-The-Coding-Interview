@@ -2,6 +2,7 @@ project(common)
 
 cmake_minimum_required(VERSION 2.8.11)
 
+message(STATUS "Build Common data type")
 set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g3 ")
 
 set(SOURCE_FILE_LIST 

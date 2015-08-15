@@ -24,6 +24,10 @@ void BTree::inOrderTraversal(){
 	}
 }
 
+
+// test
+
+
 void BTree::inVisitNode(Bnode * m_node){
 	if (m_node != 0)
 	{
@@ -42,8 +46,8 @@ void BTree::postOrderTraversal(){
 		postVisitNode(root);
 	}
 
-
 }
+
 
 void BTree::postVisitNode(Bnode * m_root){
 
@@ -321,13 +325,17 @@ bool BTree::isBSTinorderTraversalHelper(Bnode * cur_node, int & prev){
 void BTree::testCommonAncestor(){
 
 	Bnode * p = root->left->left;
-	Bnode * q = root;
+	Bnode * q = root->right->right;
 
 	std::cout << "[DEBUG] The p  " << p ->data
 			  << " q is "	<<	q ->data 	<< std::endl;
 
 	BTree::Result m_result = ancestorHelper(root, p, q);
 	std::cout << "The common ancestor is  " << m_result.m_node->data << std::endl;
+
+	visitData(p, root);
+	visitData(q, root);
+
 
 }
 
@@ -410,5 +418,53 @@ void BTree::findSumHelper(Bnode * t_node, int * path, int n, int sum){
 		findSumHelper( t_node->right, path, n+1, sum);
 	}
 }
+
+
+bool BTree::visitData(Bnode * left, Bnode * current)
+{
+	if ( current == 0)
+		return false;
+	// std::cout << "Debug: " << current->data << std::endl;
+
+	if ( current != 0 && current->data == left->data)
+	{
+		std::cout << "Node !: " << current->data << "\t";
+		return true;
+	}
+	
+	bool left_result = visitData(left, current->left);
+	bool right_result = visitData(left, current->right);
+	if ( left_result || right_result )
+	{
+		std::cout << "Node: " << current->data << "\t";
+		return true;
+	}else{
+		return false;
+	}
+}
+
+// bool BTree::visitData(Bnode * right, Bnode * current)
+// {
+// 	if ( current == 0)
+// 	return false;
+// 	// std::cout << "Debug: " << current->data << std::endl;
+
+// 	if ( current != 0 && current->data == left->data)
+// 	{
+// 		std::cout << "Node !: " << current->data << "\t";
+// 		return true;
+// 	}
+	
+// 	bool left_result = visitData(left, current->left);
+// 	bool right_result = visitData(left, current->right);
+// 	if ( left_result || right_result )
+// 	{
+// 		std::cout << "Node: " << current->data << "\t";
+// 		return true;
+// 	}else{
+// 		return false;
+// 	}
+
+// }
 
 
