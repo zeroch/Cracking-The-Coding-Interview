@@ -6,18 +6,24 @@ class arrayList(object):
         self.capacity = size
         self.size = 0
         self.array = []
+        for i in range(size):
+            self.array.append(None)
+
 
     def resize(self):
+        newCap = 2* self.capacity
         newArray = []
-        newCap = self.capacity *2;
-        for i in self.capacity:
-            newArray[i] = self.array[i]
+        for i in range(0, self.capacity):
+            newArray.append(self.array[i])
+        for i in range(self.capacity, newCap):
+            newArray.append(None)
         self.array = newArray
+        self.capacity = newCap
 
-    def capacity(self):
+    def get_capacity(self):
         return self.capacity
 
-    def size(self):
+    def get_size(self):
         return self.size
 
     def isEmpty(self):
@@ -28,30 +34,35 @@ class arrayList(object):
 
     def add(self,data):
 
-        if ( size >= capacity):
+        if ( self.size >= self.capacity):
             self.resize()
-
+        self.array[self.size] = data
         self.size += 1
-        self.array[size] = data
 
     def set(self,index,data):
         if ( index < 0):
             return
-        if ( self.size >= self.capacity or index > self.capacity ):
+        elif(index > self.capacity):
+            return
+        elif ( self.size == self.capacity):
             self.resize()
 
-        if (index <= self.size):
+        if (index <= self.size -1):
             # copy subset
-            for i in reversed(range(index, self.size)):
+            for i in reversed(range(index, self.size-1)):
                 self.array[i+1] = self.array[i]
         self.array[index] = data
         self.size += 1
 
     def delete(self, index):
-        if ( index >= 0 or index <= size):
-            for i in range(index, self.size):
+        if ( index == self.size -1):
+            self.array.remove(index)
+
+        if ( index >= 0 and index < self.size -1):
+            for i in range(index, self.size -1):
                 self.array[i] = self.array[i+1]
-            self.size -= 1
+        self.size -= 1
+        self.array[self.size] = None
 
     def indexOf(self, index):
         return self.array[index]
