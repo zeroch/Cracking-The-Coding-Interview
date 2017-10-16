@@ -22,6 +22,10 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 endif()
 
 add_subdirectory(Common)
+#add_subdirectory(TreeGraph)
+add_subdirectory(StackQueue)
+add_subdirectory(ArrayString)
+add_subdirectory(LinkedLists)
 
 option(build_tests "Build the project's unit tests" OFF)
 
